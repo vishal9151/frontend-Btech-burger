@@ -21,4 +21,4 @@ const store=configureStore({
 
 export default store;
 
-export const server = "https://ill-clam-blazer.cyclic.app/api/v1";
+export const server = "http://localhost:4000/api/v1";

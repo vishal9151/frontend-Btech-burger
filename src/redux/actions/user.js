@@ -8,6 +8,9 @@ export const loadUser = () => async (dispatch) => {
     });
 
     const { data } = await axios.get(`${server}/me`, {
+      headers:{
+        "connect_sid": localStorage.getItem("token")
+      },
       withCredentials: true,
     });
     console.log(data);

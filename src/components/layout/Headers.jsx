@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MdDashboard } from "react-icons/md";
 const Headers = ({ isAuthenticated,user  }) => {
+  console.log(user?.role);
   return (
     <nav>
       <motion.div initial={{ x: "-100%" }} whileInView={{ x: "0%" }} transition= {{ duration: 1} }>
@@ -15,32 +16,10 @@ const Headers = ({ isAuthenticated,user  }) => {
         <Link to="/">Home</Link>
         <Link to="/contact">Contact</Link>
         <Link to="/about">About</Link>
-        {user.role==="Admin"&&<Link to="/cart">
+        {user?.role!=="admin"&&<Link to="/cart">
           <FiShoppingCart />
         </Link>}
-        {user.role === "admin" && (
-            <motion.div 
-            initial= {{
-                y: "-100%",
-                opacity: 0,
-              }}
-              animate= {{
-                y: 0,
-                opacity: 1,
-              }}
-             transition={{ delay: 0.5 }}>
-              <Link
-                to="/admin/dashboard"
-                style={{
-                  borderRadius: 0,
-                  backgroundColor: "rgb(40,40,40)",
-                }}
-              >
-                <MdDashboard /> Dashboard
-              </Link>
-            </motion.div>
-          )}
-        
+
         <motion.div
           initial={{ y: "-100%" }}
           whileInView={{ y: "0%" }}

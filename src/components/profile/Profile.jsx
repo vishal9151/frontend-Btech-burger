@@ -45,8 +45,7 @@ const Profile = () => {
               </Link>
             </motion.div>
           )}
-
-        <motion.div
+      {user?.role!="admin"&&<motion.div
           initial={{
             x: "-100vw",
             opacity: 0,
@@ -58,6 +57,7 @@ const Profile = () => {
         >
           <Link to="/myorders">Orders</Link>
         </motion.div>
+}
 
         <motion.button
           initial={{
